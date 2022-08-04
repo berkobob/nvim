@@ -22,5 +22,6 @@ return packer.startup(function(use)
     use 'honza/vim-snippets'
     use 'natebosch/dartlang-snippets'
     use { 'neoclide/coc.nvim', branch = 'release'}
+    use 'nvim-lualine/lualine.nvim'
 
 end)
