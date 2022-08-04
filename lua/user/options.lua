@@ -11,7 +11,9 @@ o.splitbelow = true     -- New split windows appear below
 o.splitright = true     -- New split windows appear right
 -- o.wrap = false          -- Don't wrap text
 o.autochdir = true      -- Change the default dir to this one
-
+o.signcolumn = 'yes'    -- Extra column for signs
+c 'set colorcolumn=80'  -- Show where the 80th column 
+c 'highlight ColorColumn ctermbg=0 guibg=lightgrey'
 
 o.tabstop = 4           -- Size of tabs
 o.shiftwidth = 4        -- Size of each indent

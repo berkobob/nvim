@@ -25,5 +25,6 @@ return packer.startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use {'akinsho/bufferline.nvim', tag = "v2.*",}
     use 'kyazdani42/nvim-tree.lua'
+    use 'lewis6991/gitsigns.nvim'
 
 end)
