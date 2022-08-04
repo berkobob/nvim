@@ -47,6 +47,14 @@ keymap('n', "<S-l>", ":bnext<CR>", opts)
 keymap('n', "<S-h>", ":bprevious<CR>", opts)
 keymap('n', "<S-w>", ":bdelete<CR>", opts)
 
+-- Navigate buffers
+keymap('n', "<S-l>", ":bnext<CR>", opts)
+keymap('n', "<S-h>", ":bprevious<CR>", opts)
+keymap('n', "<S-w>", ":bdelete<CR>", opts)
+
+-- NvimTree
+keymap ('n', "<leader>e", ":NvimTreeToggle<CR>", opts)
+
 -- NvimTree
 -- keymap ('n', "<leader>e", ":NvimTreeToggle<CR>", opts)
 
