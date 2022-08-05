@@ -21,10 +21,14 @@ return packer.startup(function(use)
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
     use 'natebosch/dartlang-snippets'
-    use { 'neoclide/coc.nvim', branch = 'release'}
     use 'nvim-lualine/lualine.nvim'
     use {'akinsho/bufferline.nvim', tag = "v2.*",}
     use 'kyazdani42/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} 
+    }
+}
 
 end)
