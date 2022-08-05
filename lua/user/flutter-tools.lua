@@ -30,7 +30,7 @@ require("flutter-tools").setup {
 --      }
 --    end,
   },
-  flutter_path = "<full/path/if/needed>", -- <-- this takes priority over the lookup
+--  flutter_path = "<full/path/if/needed>", -- <-- this takes priority over the lookup
   flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
   fvm = false, -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
   widget_guides = {
@@ -73,7 +73,7 @@ require("flutter-tools").setup {
     settings = {
       showTodos = true,
       completeFunctionCalls = true,
-      analysisExcludedFolders = {"<path-to-flutter-sdk-packages>"},
+--      analysisExcludedFolders = {"<path-to-flutter-sdk-packages>"},
       renameFilesWithClasses = "prompt", -- "always"
       enableSnippets = true,
     }
