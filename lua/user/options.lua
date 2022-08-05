@@ -20,8 +20,6 @@ o.shiftwidth = 4        -- Size of each indent
 o.expandtab = true      -- When using tab key, insert spaces
 
 
-c([[ g:coc_global_extensions = ['coc-flutter'] ]])
-
 --[[
 tabstop
 The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
