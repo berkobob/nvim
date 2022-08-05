@@ -69,6 +69,8 @@ keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
 keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
 keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
 keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+keymap('n', '<C-`>', ":ToggleTerm<CR>", opts)
+
 
 -- NvimTree
 -- keymap ('n', "<leader>e", ":NvimTreeToggle<CR>", opts)
