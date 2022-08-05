@@ -33,5 +33,18 @@ return packer.startup(function(use)
     }
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'L3MON4D3/LuaSnip' }
+    use { 'kyazdani42/nvim-web-devicons' }
+    use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+
+        saga.init_lsp_saga({
+            -- your configuration
+        })
+    end,
+    use {"akinsho/toggleterm.nvim", tag = 'v2.*',}
+})
 
 end)

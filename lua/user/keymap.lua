@@ -61,6 +61,14 @@ keymap('n', "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>
 keymap('n', "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 keymap('n', "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
+-- Toggle term 
+--local opts = {buffer = 0}
+keymap('t', '<esc>', [[<C-\><C-n>]], opts)
+keymap('t', 'jk', [[<C-\><C-n>]], opts)
+keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 
 -- NvimTree
 -- keymap ('n', "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -77,7 +85,7 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 
