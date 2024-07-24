@@ -139,7 +139,6 @@ keymap("n", "<leader>fq", "<cmd>FlutterQuit<CR>", opts)
 -- LazyGit
 keymap("n", "<leader>lg", ":LazyGit <CR>", opts)
 
---[[
 -- Maximizer
 opts.desc = "Maximize/minimize a split"
 keymap("n", "<C-m>", "<cmd>MaximizerToggle<CR>", opts)
@@ -163,10 +162,6 @@ keymap("n", "<C-m>", "<cmd>MaximizerToggle<CR>", opts)
 
 -- LSP
 opts.desc = "Show LSP references"
--- nvim-tree
---keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", opts)
---keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", opts)
---keymap("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", opts)
 
 ---
 --- Advanced help and debugging
