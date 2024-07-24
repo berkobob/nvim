@@ -15,7 +15,7 @@ return {
 		local trouble = require("trouble")
 		local trouble_telescope = require("trouble.sources.telescope")
 		require("telescope").load_extension("flutter")
-		require("telescope").extensions.flutter.commands()
+		-- require("telescope").extensions.flutter.commands()
 
 		-- or create your custom action
 		-- local custom_actions = transform_mod({

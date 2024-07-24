@@ -1,7 +1,7 @@
-local term_opts = { silent = true }              -- Standard options for the terminal
-local opts = { noremap = true, silent = true }   -- Seems to be standard options
+local term_opts = { silent = true } -- Standard options for the terminal
+local opts = { noremap = true, silent = true } -- Seems to be standard options
 local keymap = vim.keymap.set
-local bufopts = { noremap=true, silent=true, buffer=bufnr }
+local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 -- Modes
 --   normal_mode  = 'n'
@@ -20,23 +20,22 @@ local bufopts = { noremap=true, silent=true, buffer=bufnr }
 --   Up, Down, Left, Right = Cursor keys
 
 ---
-vim.g.mapleader = '\\'
+vim.g.mapleader = "\\"
 ---
 
 ---
 --- Visual mode moving things around
---- 
+---
 
 -- Move indent with less and greater than signs
-keymap('v', ',', '<gv', opts)
-keymap('v', '.', '>gv', opts)
+keymap("v", ",", "<gv", opts)
+keymap("v", ".", ">gv", opts)
 
 -- Move text up and down
-keymap('v', "<Down>", ":m '>+1<CR>gv=gv", opts)
-keymap('v', "<Up>",   ":m '<-2<CR>gv=gv", opts)
+keymap("v", "<Down>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<Up>", ":m '<-2<CR>gv=gv", opts)
 
-
---- 
+---
 --- Opening and closing things
 ---
 
@@ -54,30 +53,29 @@ keymap("n", "<Tab>m", "<cmd>tabnew % <CR>", opts)
 
 -- Create windows / panes / splits
 opts.desc = "Split window vertically"
-keymap('n', "<C-=>", ":new<CR>", opts)
+keymap("n", "<C-=>", ":new<CR>", opts)
 opts.desc = "Split window horizontally"
-keymap('n', '<C-\\>', ":vne<CR>", opts)
+keymap("n", "<C-\\>", ":vne<CR>", opts)
 
 -- Navigate windows
 opts.desc = "Move to window on right"
-keymap('n', '<C-l>', "<C-w>l", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 opts.desc = "Move to window on left"
-keymap('n', '<C-h>', "<C-w>h", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
 opts.desc = "Move to window above"
-keymap('n', '<C-k>', "<C-w>k", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
 opts.desc = "Move to window below"
-keymap('n', '<C-j>', "<C-w>j", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
 
 -- Resize Windows
 opts.desc = "Decrease width"
-keymap('n', "<S-C-H>", ":vertical resize -1<CR>", opts)
+keymap("n", "<S-C-H>", ":vertical resize -1<CR>", opts)
 opts.desc = "Increase width"
-keymap('n', "<S-C-L>", ":vertical resize +1<CR>", opts)
+keymap("n", "<S-C-L>", ":vertical resize +1<CR>", opts)
 opts.desc = "Increase height"
-keymap('n', "<S-C-J>", ":resize +1<CR>", opts)
+keymap("n", "<S-C-J>", ":resize +1<CR>", opts)
 opts.desc = "Decrease height"
-keymap('n', "<S-C-K>", ":resize -1<CR>", opts)
-
+keymap("n", "<S-C-K>", ":resize -1<CR>", opts)
 
 ---
 --- Plugins
@@ -85,35 +83,49 @@ keymap('n', "<S-C-K>", ":resize -1<CR>", opts)
 
 -- Maximizer
 opts.desc = "Maximize/minimize a split"
-keymap('n', "<C-m>", "<cmd>MaximizerToggle<CR>", opts)
+keymap("n", "<C-m>", "<cmd>MaximizerToggle<CR>", opts)
 
 -- nvim-tree
-opts.desc = 'Open file tree'
+opts.desc = "Open file tree"
 keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", opts)
-opts.desc = 'Open file tree at current file'
+opts.desc = "Open file tree at current file"
 keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", opts)
-opts.desc = 'Refresh file tree'
+opts.desc = "Refresh file tree"
 keymap("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", opts)
 
 -- Telescope
 opts.desc = "Find files"
-keymap('n', '<leader>ff', '<cmd>Telescope find_files <CR>', opts)
+keymap("n", "<leader>ff", "<cmd>Telescope find_files <CR>", opts)
 opts.desc = "Search file contents (grep)"
-keymap('n', '<leader>fg', '<cmd>Telescope live_grep <CR>', opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep <CR>", opts)
 opts.desc = "Search for word under cursor"
-keymap('n', '<leader>fc', '<cmd>Telescope grep_string <CR>', opts)
+keymap("n", "<leader>fc", "<cmd>Telescope grep_string <CR>", opts)
 opts.desc = "Search open buffers"
-keymap('n', '<leader>fb', '<cmd>Telescope buffers <CR>', opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers <CR>", opts)
 opts.desc = "Telescope help"
-keymap('n', '<leader>fh', '<cmd>Telescope help_tags <CR>', opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", opts)
 opts.desc = "Search recent files"
-keymap('n', '<leader>fr', '<cmd>Telescope oldfiles <CR>', opts)
+keymap("n", "<leader>fr", "<cmd>Telescope oldfiles <CR>", opts)
+
+-- Dart and Flutter
+opts.desc = "Show Flutter commands"
+keymap("n", "<leader>dx", "<cmd>Telescope flutter commands <CR>", opts)
+opts.desc = "Show Flutter devices"
+keymap("n", "<leader>dd", "<cmd>FlutterDevices<CR>", opts)
+opts.desc = "Flutter run"
+keymap("n", "<leader>dr", "<cmd>FlutterRun<CR>", opts)
+opts.desc = "Flutter quit"
+keymap("n", "<leader>dq", "<cmd>FlutterQuit<CR>", opts)
 
 -- todo comments
 opts.desc = "Next todo comment"
-keymap("n", "<leader>tn", function() require('todo-comments').jump_next() end, opts)
-opts.desc = "Previous todo comment"  
-keymap("n", "<leader>tp", function() require('todo-comments').jump_prev() end, opts)
+keymap("n", "<leader>tn", function()
+	require("todo-comments").jump_next()
+end, opts)
+opts.desc = "Previous todo comment"
+keymap("n", "<leader>tp", function()
+	require("todo-comments").jump_prev()
+end, opts)
 opts.desc = "Popup of all TODOs"
 keymap("n", "<leader>tl", ":TodoTelescope<CR>", opts)
 opts.desc = "Show TODOs in new window"
@@ -142,7 +154,6 @@ opts.desc = "Show LSP references"
 --keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", opts)
 --keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 --keymap("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", opts)
-
 
 ---
 --- Advanced help and debugging

@@ -5,5 +5,16 @@ return {
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
 	},
-	config = true,
+	config = function()
+		require("flutter-tools").setup({
+			decorations = {
+				statusline = {
+					device = true,
+				},
+			},
+			debugger = {
+				enabled = true,
+			},
+		})
+	end,
 }
