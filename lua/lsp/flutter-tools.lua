@@ -13,8 +13,11 @@ return {
 				},
 			},
 			debugger = {
-				enabled = false, -- TODO: Add debugging
+				enabled = true,
 			},
+      widget_guides = {
+        enabled = true,
+      }
 		})
 	end,
 }

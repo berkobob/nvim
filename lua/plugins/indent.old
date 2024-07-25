@@ -3,9 +3,9 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter" },
 	event = { "BufReadPre", "BufNewFile" },
 	main = "ibl",
-  opts = {
-    indent = { char = "┊" },
-  },
+  -- opts = {
+  --   indent = { char = "┊" },
+  -- },
   config = function()
     require('ibl').setup()
   end
