@@ -82,10 +82,9 @@ return {
         capabilities = lsp_zero.get_capabilities(),
         filetypes = { 'dart' },
         cmd = {
-					"dart -d macos",
+					"dart",
 					"language-server",
 					"--protocol=lsp",
-          "-d macos",
 					-- "--port=8123",
 					-- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
 				},
