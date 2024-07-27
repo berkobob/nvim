@@ -6,6 +6,13 @@ return {
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
 	},
 	config = function()
+    local wk = require('which-key')
+    wk.add({
+      {
+        '<leader>f',  group = "Flutter" ,
+      }
+    })
+
 		require("flutter-tools").setup({
 			decorations = {
 				statusline = {

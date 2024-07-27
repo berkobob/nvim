@@ -50,6 +50,8 @@ opts.desc = "Close this tab"
 keymap("n", "<Tab>w", ":tabclose <CR>", opts)
 opts.desc = "New tab with this buffer"
 keymap("n", "<Tab>m", "<cmd>tabnew % <CR>", opts)
+-- opts.desc = "New tab with this buffer"
+keymap("n", "<Tab>p", "<cmd>BufferLinePick <CR>", opts)
 
 -- Create windows / panes / splits
 opts.desc = "Split window vertically"
@@ -87,8 +89,8 @@ opts.desc = "Open file tree"
 keymap("n", "<C-p>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
-opts.desc = "Find files"
-keymap("n", "<leader>ef", "<cmd>Telescope find_files <CR>", opts)
+-- opts.desc = "Find files"
+-- keymap("n", "<leader>ef", "<cmd>Telescope find_files <CR>", opts)
 opts.desc = "Search file contents (grep)"
 keymap("n", "<leader>eg", "<cmd>Telescope live_grep <CR>", opts)
 opts.desc = "Search for word under cursor"
@@ -114,18 +116,6 @@ keymap('n', "<leader>xL", "<cmd>Trouble loclist toggle<cr>", opts)
 opts.desc = "Quickfix List (Trouble)"
 keymap('n', "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", opts)
 
--- todo comments
-opts.desc = "Next todo comment"
-keymap("n", "<leader>tn", function() require("todo-comments").jump_next() end, opts)
-opts.desc = "Previous todo comment"
-keymap("n", "<leader>tp", function() require("todo-comments").jump_prev() end, opts)
-opts.desc = "Popup of all TODOs"
-keymap("n", "<leader>tl", ":TodoTelescope<CR>", opts)
-opts.desc = "Show TODOs in new window"
-keymap("n", "<leader>tw", ":TodoLocList<CR>", opts)
-opts.desc = "Telescope todos"
-keymap('n', "<leader>tt", ":Telescope todo-comments<CR>", opts)
-
 -- Dart and Flutter
 opts.desc = "Show Flutter commands"
 keymap("n", "<leader>fx", "<cmd>Telescope flutter commands <CR>", opts)
@@ -136,32 +126,28 @@ keymap("n", "<leader>fr", "<cmd>FlutterRun<CR>", opts)
 opts.desc = "Flutter quit"
 keymap("n", "<leader>fq", "<cmd>FlutterQuit<CR>", opts)
 
--- LazyGit
-keymap("n", "<leader>lg", ":LazyGit <CR>", opts)
-
 -- Maximizer
 opts.desc = "Maximize/minimize a split"
 keymap("n", "<C-m>", "<cmd>MaximizerToggle<CR>", opts)
 
---[[
--- surround
-    Old text                    Command         New text
---------------------------------------------------------------------------------
-    surr*ound_words             ysiw)           (surround_words)
-    *make strings               ys$"            "make strings"
-    [delete ar*ound me!]        ds]             delete around me!
-    remove <b>HTML t*ags</b>    dst             remove HTML tags
-    'change quot*es'            cs'"            "change quotes"
-    <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
-    delete(functi*on calls)     dsf             function calls
---]]
-
----
---- Advanced help and debugging
----
-
--- LSP
-opts.desc = "Show LSP references"
+opts.desc = "Test Alt"
+keymap('n', '<A-p>', function() print('Hello Antoine, the left Alt key is working') end, opts)
+opts.desc = "Toggle breakpoint"
+keymap('n', '<A-b>', ":DapToggleBreakpoint<CR>", opts)
+opts.desc = "Continue debugging"
+keymap('n', '<A-c>', ":DapContinue<CR>", opts)
+opts.desc = "Start debugging"
+keymap('n', '<A-d>', ":DapNew<CR>", opts)
+opts.desc = "Stop debugging"
+keymap('n', '<A-q>', ":DapTerminate<CR>", opts)
+opts.desc = "Step Over"
+keymap('n', '<A-Right>', ":DapStepOver<CR>", opts)
+opts.desc = "Step down"
+keymap('n', '<A-Down>', ":DapStepInto<CR>", opts)
+opts.desc = "Step out"
+keymap('n', '<A-Down>', ":DapStepOut<CR>", opts)
+opts.desc = "Show Dap Log"
+keymap('n', '<A-l>', ":DapShowLog<CR>", opts)
 
 ---
 --- Advanced help and debugging

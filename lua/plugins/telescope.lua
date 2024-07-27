@@ -17,6 +17,12 @@ return {
     require('telescope').load_extension('todo-comments')
 		require("telescope").load_extension("flutter")
 
+    local wk = require('which-key')
+    wk.add({
+      { '<leader>e',  group = "Explore" },
+      { "<leader>ef", "<cmd>Telescope find_files <CR>", desc = 'Find files', mode = 'n' },
+    })
+
 		local custom_actions = transform_mod({
 		  open_trouble_qflist = function(prompt_bufnr)
 		    trouble.toggle("quickfix")

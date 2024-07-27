@@ -11,6 +11,13 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
   },
+  plugins  = {
+    presents = {
+      operators = true,
+      motions = true,
+      text_objects = true,
+    }
+  },
   keys = {
     {
       "<C-Space>", function()
@@ -19,6 +26,9 @@ return {
       end,
       desc = "Buffer Local Keymaps (which-key)",
     },
+    { '<leader>l',  group = "Lazy" },
+    { "<leader>lg", ":LazyGit<CR>", desc = 'Lazygit', mode = 'n' },
+    { "<leader>ll", "<cmd>Lazy<CR>", desc = 'Lazy', mode = 'n' },
   },
 }
 
