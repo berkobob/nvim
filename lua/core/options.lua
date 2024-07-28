@@ -37,6 +37,8 @@ o.clipboard:append("unnamedplus")
 -- highlight current row
 o.cursorline = true
 
+_G.vim = vim
+
 --[[
 tabstop
 The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.

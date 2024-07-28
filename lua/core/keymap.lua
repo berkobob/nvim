@@ -1,4 +1,4 @@
-local term_opts = { silent = true } -- Standard options for the terminal
+local term_opts = { silent = true }            -- Standard options for the terminal
 local opts = { noremap = true, silent = true } -- Seems to be standard options
 local keymap = vim.keymap.set
 local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -145,7 +145,7 @@ keymap('n', '<A-Right>', ":DapStepOver<CR>", opts)
 opts.desc = "Step down"
 keymap('n', '<A-Down>', ":DapStepInto<CR>", opts)
 opts.desc = "Step out"
-keymap('n', '<A-Down>', ":DapStepOut<CR>", opts)
+keymap('n', '<A-Up>', ":DapStepOut<CR>", opts)
 opts.desc = "Show Dap Log"
 keymap('n', '<A-l>', ":DapShowLog<CR>", opts)
 
@@ -174,7 +174,7 @@ opts.desc = "See available code actions"
 keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- see available code actions, in visual mode will apply to selection
 
 opts.desc = "Smart rename"
-keymap("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+keymap("n", "<leader>bn", vim.lsp.buf.rename, opts) -- smart rename
 
 opts.desc = "Show buffer diagnostics"
 keymap("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
@@ -189,11 +189,12 @@ opts.desc = "Go to next diagnostic"
 keymap("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
 opts.desc = "Show documentation for what is under cursor"
-keymap("n", "K", vim.lsp.buf.hover, {}) -- show documentation for what is under cursor
+keymap("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 opts.desc = "Restart LSP"
-keymap("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+keymap("n", "<leader>bs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-keymap("n", "<leader>gf", vim.lsp.buf.format, {})
+opts.desc = "Format code"
+keymap("n", "<leader>bf", vim.lsp.buf.format, opts)
 
 --]]--

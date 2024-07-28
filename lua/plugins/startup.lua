@@ -17,8 +17,8 @@ return {
 
         dashboard.section.top_buttons.header= "Projects"
         dashboard.section.top_buttons.val = {
-			-- dashboard.button("n", "neovim config", function() vim.cmd(':cd ~/.config/nvim') vim.cmd('Telescope find_files') end),
-			-- dashboard.button("r", "RPM2", function() vim.cmd(':cd ~/dev/src/rpm2') vim.cmd('Telescope find_files') end),
+			  -- dashboard.button("n", "neovim config", function() vim.cmd(':cd ~/.config/nvim') vim.cmd('Telescope find_files') end),
+			  -- dashboard.button("r", "RPM2", function() vim.cmd(':cd ~/dev/src/rpm2') vim.cmd('Telescope find_files') end),
         }
 
 

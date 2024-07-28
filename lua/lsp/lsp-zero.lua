@@ -8,6 +8,7 @@ return {
       -- Disable automatic setup, we are doing it manually
       vim.g.lsp_zero_extend_cmp = 0
       vim.g.lsp_zero_extend_lspconfig = 0
+
     end,
   },
   {
@@ -21,7 +22,7 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      {'L3MON4D3/LuaSnip'},
+      { 'L3MON4D3/LuaSnip' },
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
@@ -33,7 +34,7 @@ return {
       local cmp_action = lsp_zero.cmp_action()
 
       cmp.setup({
-        formatting = lsp_zero.cmp_format({details = true}),
+        formatting = lsp_zero.cmp_format({ details = true }),
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -59,11 +60,11 @@ return {
   -- LSP
   {
     'neovim/nvim-lspconfig',
-    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-    event = {'BufReadPre', 'BufNewFile'},
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason-lspconfig.nvim' },
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -75,19 +76,19 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        lsp_zero.default_keymaps({buffer = bufnr})
+        lsp_zero.default_keymaps({ buffer = bufnr })
       end)
 
       require('lspconfig')['dartls'].setup({
         capabilities = lsp_zero.get_capabilities(),
         filetypes = { 'dart' },
         cmd = {
-					"dart",
-					"language-server",
-					"--protocol=lsp",
-					-- "--port=8123",
-					-- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
-				},
+          "dart",
+          "language-server",
+          "--protocol=lsp",
+          -- "--port=8123",
+          -- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
+        },
       })
 
       require('mason-lspconfig').setup({
