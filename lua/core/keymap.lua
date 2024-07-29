@@ -90,20 +90,6 @@ keymap("n", "<C-p>", "<cmd>NvimTreeToggle<CR>", opts)
 opts.desc = "Open file tree at current file"
 keymap("n", "<C-f>", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
--- Telescope
--- opts.desc = "Find files"
--- keymap("n", "<leader>ef", "<cmd>Telescope find_files <CR>", opts)
--- opts.desc = "Search file contents (grep)"
--- keymap("n", "<leader>eg", "<cmd>Telescope live_grep <CR>", opts)
--- opts.desc = "Search for word under cursor"
--- keymap("n", "<leader>ec", "<cmd>Telescope grep_string <CR>", opts)
--- opts.desc = "Search open buffers"
--- keymap("n", "<leader>eb", "<cmd>Telescope buffers <CR>", opts)
--- opts.desc = "Telescope help"
--- keymap("n", "<leader>eh", "<cmd>Telescope help_tags <CR>", opts)
--- opts.desc = "Search recent files"
--- keymap("n", "<leader>er", "<cmd>Telescope oldfiles <CR>", opts)
-
 -- trouble
 opts.desc = "Diagnostics (Trouble)"
 keymap('n', "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", opts)
