@@ -38,7 +38,7 @@ o.clipboard:append("unnamedplus")
 o.cursorline = true
 
 _G.vim = vim
-
+-- colorscheme  catppuccin-mocha -- default
 --[[
 tabstop
 The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
