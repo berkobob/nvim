@@ -79,6 +79,11 @@ keymap("n", "<S-C-J>", ":resize +1<CR>", opts)
 opts.desc = "Decrease height"
 keymap("n", "<S-C-K>", ":resize -1<CR>", opts)
 
+-- buffers
+opts.desc = "Next buffer"
+keymap('n', '<C-l>', ":bnext<CR>", opts)
+opts.desc = "Previous buffer"
+keymap('n', '<C-h>', ":bprevious<CR>", opts)
 
 ---
 --- Plugins
@@ -103,16 +108,6 @@ opts.desc = "Location List (Trouble)"
 keymap('n', "<leader>xL", "<cmd>Trouble loclist toggle<cr>", opts)
 opts.desc = "Quickfix List (Trouble)"
 keymap('n', "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", opts)
-
--- Dart and Flutter
-opts.desc = "Show Flutter commands"
-keymap("n", "<leader>fx", "<cmd>Telescope flutter commands <CR>", opts)
-opts.desc = "Show Flutter devices"
-keymap("n", "<leader>fd", "<cmd>FlutterDevices<CR>", opts)
-opts.desc = "Flutter run"
-keymap("n", "<leader>fr", "<cmd>FlutterRun<CR>", opts)
-opts.desc = "Flutter quit"
-keymap("n", "<leader>fq", "<cmd>FlutterQuit<CR>", opts)
 
 -- Maximizer
 opts.desc = "Maximize/minimize a split"
