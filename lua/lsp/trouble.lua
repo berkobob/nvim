@@ -15,7 +15,6 @@ return {
 			desc = "Buffer Diagnostics (Trouble)",
 			mode = "n",
 		},
-		{ "<Leader>xp", "<cmd>TroubleToggle workspace_diganostics <CR>", desc = "Symbols (Trouble)", mode = "n" },
 		{ "<Leader>xs", "<cmd>Trouble symbols toggle focus=false <CR>", desc = "Symbols (Trouble)", mode = "n" },
 		{
 			"<Leader>xl",
