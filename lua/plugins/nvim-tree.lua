@@ -10,7 +10,7 @@ return {
 		-- recommended settings from nvim-tree docs
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrePlugin = 1
-    vim.opt.termguicolors = true -- enable 24bit colour
+		vim.opt.termguicolors = true -- enable 24bit colour
 
 		nvimtree.setup({
 			view = {
@@ -33,6 +33,12 @@ return {
 					quit_on_open = true,
 				},
 			},
+		})
+
+		require("which-key").add({
+			{ "<C-p>", "<cmd>NvimTreeToggle<CR>", desc = "Open file explorer", mode = "n" },
+			{ "<C-f>", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Open file explorer", mode = "n" },
+			{ "<Esc>", "<cmd>NvimTreeToggle<CR>", desc = "Open file explorer", mode = "n" },
 		})
 	end,
 }
