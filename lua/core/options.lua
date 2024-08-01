@@ -1,32 +1,32 @@
-local o = vim.opt -- Global options
-local c = vim.cmd -- Vim commands
-local w = vim.wo -- Window options
-local b = vim.bo -- Vim buffer options
+local o = vim.opt       -- Global options
+local c = vim.cmd       -- Vim commands
+local w = vim.wo        -- Window options
+local b = vim.bo        -- Vim buffer options
 
-o.mouse = "a" -- enable mouse
-o.number = true -- Show line numbers
+o.mouse = "a"           -- enable mouse
+o.number = true         -- Show line numbers
 o.relativenumber = true -- Show line numbers
-o.scrolloff = 8 -- Start scrolling before reaching the bottom or top
-o.termguicolors = true -- Have more colors available
-o.splitbelow = true -- New split windows appear below
-o.splitright = true -- New split windows appear right
-o.wrap = false -- Don't wrap text
-o.autochdir = false -- Change the default dir to this one
-o.signcolumn = "yes" -- Extra column for signs
+o.scrolloff = 8         -- Start scrolling before reaching the bottom or top
+o.termguicolors = true  -- Have more colors available
+o.splitbelow = true     -- New split windows appear below
+o.splitright = true     -- New split windows appear right
+o.wrap = false          -- Don't wrap text
+o.autochdir = false     -- Change the default dir to this one
+o.signcolumn = "yes"    -- Extra column for signs
 o.iskeyword:append("-")
 c("set colorcolumn=80") -- Show where the 80th column
 c("highlight ColorColumn ctermbg=0 guibg=lightgrey")
 
-o.tabstop = 2 -- Size of tabs
-o.shiftwidth = 2 -- Size of each indent
+o.tabstop = 2      -- Size of tabs
+o.shiftwidth = 2   -- Size of each indent
 o.expandtab = true -- When using tab key, insert spaces
 o.autoindent = true
 
 -- search settings
 o.ignorecase = true -- Will find upper and lowercase examples
 o.smartcase = true
-o.incsearch = true -- Smart searching e.g example*
-o.hlsearch = true -- dont stay highlighted
+o.incsearch = true  -- Smart searching e.g example*
+o.hlsearch = true   -- dont stay highlighted
 
 -- backspace
 o.backspace = "indent,eol,start"
@@ -37,10 +37,7 @@ o.clipboard:append("unnamedplus")
 -- highlight current row
 o.cursorline = true
 
-_G.vim = vim
-o.foldcolumn = "1"
 o.foldmethod = "indent"
---o.nofoldenable = true
 o.foldlevelstart = 99
 -- colorscheme  catppuccin-mocha -- default
 --[[
