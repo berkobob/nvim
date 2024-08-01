@@ -54,7 +54,8 @@ return {
 				{ "<leader>fd", "<cmd>FlutterDevices <CR>", desc = "Show Flutter devices", mode = "n" },
 				{ "<leader>fr", "<cmd>FlutterRun <CR>", desc = "Flutter run", mode = "n" },
 				{ "<leader>fq", "<cmd>FlutterQuit <CR>", desc = "Flutter quit", mode = "n" },
-				{ "<leader>fg", "<cmd>FlutterRestart <CR>", desc = "Flutter hot restart", mode = "n" },
+				{ "<leader>fh", "<cmd>FlutterRestart <CR>", desc = "Flutter hot restart", mode = "n" },
+				{ "<leader>fo", "<cmd>FlutterOutlineToggle <CR>", desc = "Flutter outline", mode = "n" },
 			}),
 		})
 	end,
