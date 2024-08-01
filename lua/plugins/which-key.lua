@@ -12,10 +12,6 @@ return {
 			{ "<leader>ll", "<cmd>Lazy<CR>", desc = "Lazy", mode = "n" },
 			{ "<leader>lz", "<cmd>Lazy<CR>", desc = "Lazy", mode = "n" },
 		},
-		--  prefix = '<leader>?'
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
 	},
 	plugins = {
 		presents = {
