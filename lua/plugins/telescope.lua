@@ -14,6 +14,7 @@ return {
     local transform_mod = require("telescope.actions.mt").transform_mod
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
+    
     require('telescope').load_extension('todo-comments')
     require("telescope").load_extension("flutter")
 
