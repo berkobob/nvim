@@ -37,7 +37,7 @@ return {
 
 		require("which-key").add({
 			{ "<C-p>", "<cmd>NvimTreeToggle<CR>", desc = "Open file explorer", mode = "n" },
-			{ "<Esc>", "<cmd>NvimTreeToggle<CR>", desc = "Open file explorer", mode = "n" },
+			-- { "<Esc>", "<cmd>NvimTreeToggle<CR>", desc = "Open file explorer", mode = "n" },
 		})
 	end,
 }

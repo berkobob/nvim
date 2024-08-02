@@ -79,6 +79,6 @@ keymap("n", "<S-C-K>", ":resize -1<CR>", opts)
 
 -- buffers
 opts.desc = "Next buffer"
-keymap("n", "<Tab>h", ":bnext<CR>", opts)
+keymap("n", "<A-h>", ":bnext<CR>", opts)
 opts.desc = "Previous buffer"
-keymap("n", "<Tab>l", ":bprevious<CR>", opts)
+keymap("n", "<A-l>", ":bprevious<CR>", opts)
