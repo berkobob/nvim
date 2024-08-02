@@ -113,8 +113,10 @@ return {
 				{ "<A-Right>", ":DapStepOver <CR>", desc = "Step Over", mode = "n" },
 				{ "<A-Down>", ":DapStepInto <CR>", desc = "Step down", mode = "n" },
 				{ "<A-Up>", ":DapStepOut <CR>", desc = "Step out", mode = "n" },
+				{ "<A-Left>", ":DapContinue <CR>", desc = "Continue", mode = "n" },
 				{ "<Leader>dl", ":DapShowLog <CR>", desc = "Show Dap Log", mode = "n" },
-				{ "<Leader>dr", ":lua require('dapui').open({reset = true}) <CR>", desc = "Reset Dap UI", mode = "n" },
+				{ "<Leader>dr", ":DapToggleRepl <CR>", desc = "Show Dap Log", mode = "n" },
+				{ "<Leader>dR", ":lua require('dapui').open({reset = true}) <CR>", desc = "Reset Dap UI", mode = "n" },
 				{ "<Leader>du", ":lua require('dapui').toggle() <CR>", desc = "Toggle Dap UI", mode = "n" },
 			})
 		end,
