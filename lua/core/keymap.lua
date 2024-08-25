@@ -53,19 +53,19 @@ keymap("n", "<Tab>p", "<cmd>BufferLinePick <CR>", opts)
 
 -- Create windows / panes / splits
 opts.desc = "Split window vertically"
-keymap("n", "<C-=>", ":new<CR>", opts)
+keymap("n", "<C-_>", ":new<CR>", opts)
 opts.desc = "Split window horizontally"
 keymap("n", "<C-\\>", ":vne<CR>", opts)
 
 -- Navigate windows
-opts.desc = "Move to window on right"
-keymap("n", "<C-l>", "<C-w>l", opts)
-opts.desc = "Move to window on left"
-keymap("n", "<C-h>", "<C-w>h", opts)
-opts.desc = "Move to window above"
-keymap("n", "<C-k>", "<C-w>k", opts)
-opts.desc = "Move to window below"
-keymap("n", "<C-j>", "<C-w>j", opts)
+-- opts.desc = "Move to window on right"
+-- keymap("n", "<C-l>", "<C-w>l", opts)
+-- opts.desc = "Move to window on left"
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- opts.desc = "Move to window above"
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- opts.desc = "Move to window below"
+-- keymap("n", "<C-j>", "<C-w>j", opts)
 
 -- Resize Windows
 opts.desc = "Decrease width"
