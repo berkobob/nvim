@@ -23,6 +23,8 @@ return {
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"dart",
+				"markdown",
+				"markdown_inline",
 			},
 			incremental_selection = {
 				enable = true,

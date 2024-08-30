@@ -82,3 +82,4 @@ opts.desc = "Next buffer"
 keymap("n", "<A-h>", ":bnext<CR>", opts)
 opts.desc = "Previous buffer"
 keymap("n", "<A-l>", ":bprevious<CR>", opts)
+

@@ -39,7 +39,7 @@ o.cursorline = true
 
 o.foldmethod = "indent"
 o.foldlevelstart = 99
-
+o.conceallevel = 2
 --[[
 tabstop
 The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
