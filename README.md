@@ -17,3 +17,20 @@ My Neovim config
 <S><C>v 
 <S>I
 @ runs macro
+
+## Read me
+this is a readme too. So why not just use this
+- [ ] Thing 1
+- [ ] Thing 2
+
+### A heading
+    - Here we go
+    - Nearly there
+
+-
+|col 1|col 2|col 3|
+|-|-|-|
+|a|b|c|
+|1|2|3|
+
+
