@@ -1,4 +1,4 @@
-# nvim
+ nvim
 My Neovim config
 
 -- checkout basic branch for text editing only
