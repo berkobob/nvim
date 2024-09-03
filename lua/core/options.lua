@@ -3,7 +3,6 @@ local c = vim.cmd -- Vim commands
 local w = vim.wo -- Window options
 local b = vim.bo -- Vim buffer options
 
-o.completeopt = menuone, noinsert, noselect
 o.hidden = true
 o.filetype = plugin, indent, on
 o.mouse = "a" -- enable mouse
