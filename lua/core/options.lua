@@ -3,9 +3,12 @@ local c = vim.cmd -- Vim commands
 local w = vim.wo -- Window options
 local b = vim.bo -- Vim buffer options
 
+o.completeopt = menuone, noinsert, noselect
+o.hidden = true
+o.filetype = plugin, indent, on
 o.mouse = "a" -- enable mouse
 o.number = true -- Show line numbers
-o.relativenumber = true -- Show line numbers
+o.relativenumber = false -- Show line numbers
 o.scrolloff = 8 -- Start scrolling before reaching the bottom or top
 o.termguicolors = true -- Have more colors available
 o.splitbelow = true -- New split windows appear below
