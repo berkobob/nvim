@@ -26,8 +26,9 @@ o.autoindent = true
 o.ignorecase = true -- Will find upper and lowercase examples
 o.smartcase = true
 o.incsearch = true -- Smart searching e.g example*
+o.inccommand = "split"
 o.hlsearch = true -- dont stay highlighted
-
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- backspace
 o.backspace = "indent,eol,start"
 
