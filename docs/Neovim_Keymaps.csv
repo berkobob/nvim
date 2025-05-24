@@ -1,0 +1,23 @@
+mode,key,command,description
+v,",",<gv,
+v,.,>gv,
+v,<Down>,:m '>+1<CR>gv=gv,
+v,<Up>,:m '<-2<CR>gv=gv,
+n,<Tab>l,:tabn <CR>,Next tab
+n,<Tab>h,:tabp <CR>,Previous tab
+n,<Tab>t,:tabnew <CR>,Open a new tab
+n,<Tab>w,:tabclose <CR>,Close this tab
+n,<Tab>m,<cmd>tabnew % <CR>,New tab with this buffer
+n,<Tab>p,<cmd>BufferLinePick <CR>,New tab with this buffer
+n,<C-_>,:new<CR>,Split window vertically
+n,<C-\\>,:vne<CR>,Split window horizontally
+n,<C-l>,<C-w>l,Move to window on right
+n,<C-h>,<C-w>h,Move to window on left
+n,<C-k>,<C-w>k,Move to window above
+n,<C-j>,<C-w>j,Move to window below
+n,<S-C-H>,:vertical resize -1<CR>,Decrease width
+n,<S-C-L>,:vertical resize +1<CR>,Increase width
+n,<S-C-J>,:resize +1<CR>,Increase height
+n,<S-C-K>,:resize -1<CR>,Decrease height
+n,<A-h>,:bnext<CR>,Next buffer
+n,<A-l>,:bprevious<CR>,Previous buffer

@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neovim Keymaps</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+</head>
+<body>
+<h2>🗺️ Neovim Keymap Reference (Interactive)</h2>
+<table id="keymap-table" class="display" style="width:100%">
+<thead>
+<tr><th>Mode</th><th>Key</th><th>Command</th><th>Description</th><th>Plugin</th></tr>
+</thead>
+<tbody>
+<tr><td>n</td><td><Tab>p</td><td><Cmd>BufferLinePick <CR></td><td>New tab with this buffer</td><td>BufferLine</td></tr>
+<tr><td>n</td><td><Tab>m</td><td><Cmd>tabnew % <CR></td><td>New tab with this buffer</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><Tab>w</td><td>:tabclose <CR></td><td>Close this tab</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><Tab>t</td><td>:tabnew <CR></td><td>Open a new tab</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><Tab>h</td><td>:tabp <CR></td><td>Previous tab</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><Tab>l</td><td>:tabn <CR></td><td>Next tab</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>&</td><td>:&&<CR></td><td>:help &-default</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>Y</td><td>y$</td><td>:help Y-default</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[ </td><td></td><td>Add empty line above cursor</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[B</td><td></td><td>:brewind</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[b</td><td></td><td>:bprevious</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[<C-T></td><td></td><td> :ptprevious</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[T</td><td></td><td>:trewind</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[t</td><td></td><td>:tprevious</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[A</td><td></td><td>:rewind</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[a</td><td></td><td>:previous</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[<C-L></td><td></td><td>:lpfile</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[L</td><td></td><td>:lrewind</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[l</td><td></td><td>:lprevious</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[<C-Q></td><td></td><td>:cpfile</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[Q</td><td></td><td>:crewind</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[q</td><td></td><td>:cprevious</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>[D</td><td></td><td>Jump to the first diagnostic in the current buffer</td><td>LSP</td></tr>
+<tr><td>n</td><td>[d</td><td></td><td>Jump to the previous diagnostic in the current buffer</td><td>LSP</td></tr>
+<tr><td>n</td><td>] </td><td></td><td>Add empty line below cursor</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]B</td><td></td><td>:blast</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]b</td><td></td><td>:bnext</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]<C-T></td><td></td><td>:ptnext</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]T</td><td></td><td>:tlast</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]t</td><td></td><td>:tnext</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]A</td><td></td><td>:last</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]a</td><td></td><td>:next</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]<C-L></td><td></td><td>:lnfile</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]L</td><td></td><td>:llast</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]l</td><td></td><td>:lnext</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]<C-Q></td><td></td><td>:cnfile</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]Q</td><td></td><td>:clast</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]q</td><td></td><td>:cnext</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>]D</td><td></td><td>Jump to the last diagnostic in the current buffer</td><td>LSP</td></tr>
+<tr><td>n</td><td>]d</td><td></td><td>Jump to the next diagnostic in the current buffer</td><td>LSP</td></tr>
+<tr><td>n</td><td>gcA</td><td></td><td>Comment insert end of line</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gcO</td><td></td><td>Comment insert above</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gco</td><td></td><td>Comment insert below</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gbc</td><td></td><td>Comment toggle current block</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gb</td><td><Plug>(comment_toggle_blockwise)</td><td>Comment toggle blockwise</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gO</td><td></td><td>vim.lsp.buf.document_symbol()</td><td>LSP</td></tr>
+<tr><td>n</td><td>gri</td><td></td><td>vim.lsp.buf.implementation()</td><td>LSP</td></tr>
+<tr><td>n</td><td>grr</td><td></td><td>vim.lsp.buf.references()</td><td>LSP</td></tr>
+<tr><td>n</td><td>gra</td><td></td><td>vim.lsp.buf.code_action()</td><td>LSP</td></tr>
+<tr><td>n</td><td>grn</td><td></td><td>vim.lsp.buf.rename()</td><td>LSP</td></tr>
+<tr><td>n</td><td>gcc</td><td></td><td>Comment toggle current line</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gc</td><td><Plug>(comment_toggle_linewise)</td><td>Comment toggle linewise</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td>gx</td><td></td><td>Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td>shn</td><td></td><td>Highlight next surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sFn</td><td></td><td>Find next left surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sfn</td><td></td><td>Find next right surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>srn</td><td></td><td>Replace next surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sdn</td><td></td><td>Delete next surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>shl</td><td></td><td>Highlight previous surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sFl</td><td></td><td>Find previous left surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sfl</td><td></td><td>Find previous right surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>srl</td><td></td><td>Replace previous surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sdl</td><td></td><td>Delete previous surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sn</td><td></td><td>Update `MiniSurround.config.n_lines`</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sh</td><td></td><td>Highlight surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sF</td><td></td><td>Find left surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sf</td><td></td><td>Find right surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sr</td><td></td><td>Replace surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sd</td><td></td><td>Delete surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td>sa</td><td></td><td>Add surrounding</td><td>MiniSurround</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_blockwise_count)</td><td></td><td>Comment toggle blockwise with count</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_linewise_count)</td><td></td><td>Comment toggle linewise with count</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_blockwise_current)</td><td></td><td>Comment toggle current block</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_linewise_current)</td><td></td><td>Comment toggle current line</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_blockwise)</td><td></td><td>Comment toggle blockwise</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><Plug>(comment_toggle_linewise)</td><td></td><td>Comment toggle linewise</td><td>Comment.nvim</td></tr>
+<tr><td>n</td><td><M-l></td><td>:bprevious<CR></td><td>Previous buffer</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><M-h></td><td>:bnext<CR></td><td>Next buffer</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-S-K></td><td>:resize -1<CR></td><td>Decrease height</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-S-J></td><td>:resize +1<CR></td><td>Increase height</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-S-L></td><td>:vertical resize +1<CR></td><td>Increase width</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-S-H></td><td>:vertical resize -1<CR></td><td>Decrease width</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-Bslash></td><td>:vne<CR></td><td>Split window horizontally</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-_></td><td>:new<CR></td><td>Split window vertically</td><td>User-defined or unknown</td></tr>
+<tr><td>n</td><td><C-W><C-D></td><td><C-W>d</td><td>Show diagnostics under the cursor</td><td>LSP</td></tr>
+<tr><td>n</td><td><C-W>d</td><td></td><td>Show diagnostics under the cursor</td><td>LSP</td></tr>
+<tr><td>v</td><td><Tab></td><td></td><td>vim.snippet.jump if active, otherwise <Tab></td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td>#</td><td></td><td>:help v_#-default</td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td>*</td><td></td><td>:help v_star-default</td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td>@</td><td>mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'</td><td>:help v_@-default</td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td>Q</td><td>mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'</td><td>:help v_Q-default</td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td>gb</td><td><Plug>(comment_toggle_blockwise_visual)</td><td>Comment toggle blockwise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>v</td><td>gra</td><td></td><td>vim.lsp.buf.code_action()</td><td>LSP</td></tr>
+<tr><td>v</td><td>gc</td><td><Plug>(comment_toggle_linewise_visual)</td><td>Comment toggle linewise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>v</td><td>gx</td><td></td><td>Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)</td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td><Plug>(comment_toggle_blockwise_visual)</td><td><Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR></td><td>Comment toggle blockwise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>v</td><td><Plug>(comment_toggle_linewise_visual)</td><td><Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR></td><td>Comment toggle linewise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>v</td><td><S-Tab></td><td></td><td>vim.snippet.jump if active, otherwise <S-Tab></td><td>User-defined or unknown</td></tr>
+<tr><td>v</td><td><C-S></td><td></td><td>vim.lsp.buf.signature_help()</td><td>LSP</td></tr>
+<tr><td>i</td><td><S-Tab></td><td></td><td>vim.snippet.jump if active, otherwise <S-Tab></td><td>User-defined or unknown</td></tr>
+<tr><td>i</td><td><C-S></td><td></td><td>vim.lsp.buf.signature_help()</td><td>LSP</td></tr>
+<tr><td>i</td><td><C-W></td><td><C-G>u<C-W></td><td>:help i_CTRL-W-default</td><td>User-defined or unknown</td></tr>
+<tr><td>i</td><td><C-U></td><td><C-G>u<C-U></td><td>:help i_CTRL-U-default</td><td>User-defined or unknown</td></tr>
+<tr><td>i</td><td><Tab></td><td></td><td>vim.snippet.jump if active, otherwise <Tab></td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td>#</td><td></td><td>:help v_#-default</td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td>*</td><td></td><td>:help v_star-default</td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td>@</td><td>mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'</td><td>:help v_@-default</td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td>Q</td><td>mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'</td><td>:help v_Q-default</td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td>gb</td><td><Plug>(comment_toggle_blockwise_visual)</td><td>Comment toggle blockwise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>x</td><td>gra</td><td></td><td>vim.lsp.buf.code_action()</td><td>LSP</td></tr>
+<tr><td>x</td><td>gc</td><td><Plug>(comment_toggle_linewise_visual)</td><td>Comment toggle linewise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>x</td><td>gx</td><td></td><td>Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)</td><td>User-defined or unknown</td></tr>
+<tr><td>x</td><td><Plug>(comment_toggle_blockwise_visual)</td><td><Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR></td><td>Comment toggle blockwise (visual)</td><td>Comment.nvim</td></tr>
+<tr><td>x</td><td><Plug>(comment_toggle_linewise_visual)</td><td><Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR></td><td>Comment toggle linewise (visual)</td><td>Comment.nvim</td></tr>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function () {
+    $('#keymap-table').DataTable({
+        "pageLength": 25
+    });
+});
+</script>
+</body>
+</html>
