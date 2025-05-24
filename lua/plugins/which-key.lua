@@ -5,6 +5,9 @@ return {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
 	end,
+	config = function()
+		require("telescope.whichkey_register") -- 👈 Add this here
+	end,
 	opts = {
 		spec = {
 			{ "<leader>l", group = "Lazy" },

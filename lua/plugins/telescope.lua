@@ -86,5 +86,6 @@ return {
 			},
 		})
 		telescope.load_extension("fzf")
+                require("telescope").load_extension("my_keymaps")
 	end,
 }

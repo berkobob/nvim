@@ -1,0 +1,153 @@
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local conf = require("telescope.config").values
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
+local keymaps = {
+  {"n", "<Tab>p", "<Cmd>BufferLinePick <CR>", "New tab with this buffer", "BufferLine"},
+  {"n", "<Tab>m", "<Cmd>tabnew % <CR>", "New tab with this buffer", "User-defined or unknown"},
+  {"n", "<Tab>w", ":tabclose <CR>", "Close this tab", "User-defined or unknown"},
+  {"n", "<Tab>t", ":tabnew <CR>", "Open a new tab", "User-defined or unknown"},
+  {"n", "<Tab>h", ":tabp <CR>", "Previous tab", "User-defined or unknown"},
+  {"n", "<Tab>l", ":tabn <CR>", "Next tab", "User-defined or unknown"},
+  {"n", "&", ":&&<CR>", ":help &-default", "User-defined or unknown"},
+  {"n", "Y", "y$", ":help Y-default", "User-defined or unknown"},
+  {"n", "[ ", "", "Add empty line above cursor", "User-defined or unknown"},
+  {"n", "[B", "", ":brewind", "User-defined or unknown"},
+  {"n", "[b", "", ":bprevious", "User-defined or unknown"},
+  {"n", "[<C-T>", "", " :ptprevious", "User-defined or unknown"},
+  {"n", "[T", "", ":trewind", "User-defined or unknown"},
+  {"n", "[t", "", ":tprevious", "User-defined or unknown"},
+  {"n", "[A", "", ":rewind", "User-defined or unknown"},
+  {"n", "[a", "", ":previous", "User-defined or unknown"},
+  {"n", "[<C-L>", "", ":lpfile", "User-defined or unknown"},
+  {"n", "[L", "", ":lrewind", "User-defined or unknown"},
+  {"n", "[l", "", ":lprevious", "User-defined or unknown"},
+  {"n", "[<C-Q>", "", ":cpfile", "User-defined or unknown"},
+  {"n", "[Q", "", ":crewind", "User-defined or unknown"},
+  {"n", "[q", "", ":cprevious", "User-defined or unknown"},
+  {"n", "[D", "", "Jump to the first diagnostic in the current buffer", "LSP"},
+  {"n", "[d", "", "Jump to the previous diagnostic in the current buffer", "LSP"},
+  {"n", "] ", "", "Add empty line below cursor", "User-defined or unknown"},
+  {"n", "]B", "", ":blast", "User-defined or unknown"},
+  {"n", "]b", "", ":bnext", "User-defined or unknown"},
+  {"n", "]<C-T>", "", ":ptnext", "User-defined or unknown"},
+  {"n", "]T", "", ":tlast", "User-defined or unknown"},
+  {"n", "]t", "", ":tnext", "User-defined or unknown"},
+  {"n", "]A", "", ":last", "User-defined or unknown"},
+  {"n", "]a", "", ":next", "User-defined or unknown"},
+  {"n", "]<C-L>", "", ":lnfile", "User-defined or unknown"},
+  {"n", "]L", "", ":llast", "User-defined or unknown"},
+  {"n", "]l", "", ":lnext", "User-defined or unknown"},
+  {"n", "]<C-Q>", "", ":cnfile", "User-defined or unknown"},
+  {"n", "]Q", "", ":clast", "User-defined or unknown"},
+  {"n", "]q", "", ":cnext", "User-defined or unknown"},
+  {"n", "]D", "", "Jump to the last diagnostic in the current buffer", "LSP"},
+  {"n", "]d", "", "Jump to the next diagnostic in the current buffer", "LSP"},
+  {"n", "gcA", "", "Comment insert end of line", "Comment.nvim"},
+  {"n", "gcO", "", "Comment insert above", "Comment.nvim"},
+  {"n", "gco", "", "Comment insert below", "Comment.nvim"},
+  {"n", "gbc", "", "Comment toggle current block", "Comment.nvim"},
+  {"n", "gb", "<Plug>(comment_toggle_blockwise)", "Comment toggle blockwise", "Comment.nvim"},
+  {"n", "gO", "", "vim.lsp.buf.document_symbol()", "LSP"},
+  {"n", "gri", "", "vim.lsp.buf.implementation()", "LSP"},
+  {"n", "grr", "", "vim.lsp.buf.references()", "LSP"},
+  {"n", "gra", "", "vim.lsp.buf.code_action()", "LSP"},
+  {"n", "grn", "", "vim.lsp.buf.rename()", "LSP"},
+  {"n", "gcc", "", "Comment toggle current line", "Comment.nvim"},
+  {"n", "gc", "<Plug>(comment_toggle_linewise)", "Comment toggle linewise", "Comment.nvim"},
+  {"n", "gx", "", "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)", "User-defined or unknown"},
+  {"n", "shn", "", "Highlight next surrounding", "MiniSurround"},
+  {"n", "sFn", "", "Find next left surrounding", "MiniSurround"},
+  {"n", "sfn", "", "Find next right surrounding", "MiniSurround"},
+  {"n", "srn", "", "Replace next surrounding", "MiniSurround"},
+  {"n", "sdn", "", "Delete next surrounding", "MiniSurround"},
+  {"n", "shl", "", "Highlight previous surrounding", "MiniSurround"},
+  {"n", "sFl", "", "Find previous left surrounding", "MiniSurround"},
+  {"n", "sfl", "", "Find previous right surrounding", "MiniSurround"},
+  {"n", "srl", "", "Replace previous surrounding", "MiniSurround"},
+  {"n", "sdl", "", "Delete previous surrounding", "MiniSurround"},
+  {"n", "sn", "", "Update `MiniSurround.config.n_lines`", "MiniSurround"},
+  {"n", "sh", "", "Highlight surrounding", "MiniSurround"},
+  {"n", "sF", "", "Find left surrounding", "MiniSurround"},
+  {"n", "sf", "", "Find right surrounding", "MiniSurround"},
+  {"n", "sr", "", "Replace surrounding", "MiniSurround"},
+  {"n", "sd", "", "Delete surrounding", "MiniSurround"},
+  {"n", "sa", "", "Add surrounding", "MiniSurround"},
+  {"n", "<Plug>(comment_toggle_blockwise_count)", "", "Comment toggle blockwise with count", "Comment.nvim"},
+  {"n", "<Plug>(comment_toggle_linewise_count)", "", "Comment toggle linewise with count", "Comment.nvim"},
+  {"n", "<Plug>(comment_toggle_blockwise_current)", "", "Comment toggle current block", "Comment.nvim"},
+  {"n", "<Plug>(comment_toggle_linewise_current)", "", "Comment toggle current line", "Comment.nvim"},
+  {"n", "<Plug>(comment_toggle_blockwise)", "", "Comment toggle blockwise", "Comment.nvim"},
+  {"n", "<Plug>(comment_toggle_linewise)", "", "Comment toggle linewise", "Comment.nvim"},
+  {"n", "<M-l>", ":bprevious<CR>", "Previous buffer", "User-defined or unknown"},
+  {"n", "<M-h>", ":bnext<CR>", "Next buffer", "User-defined or unknown"},
+  {"n", "<C-S-K>", ":resize -1<CR>", "Decrease height", "User-defined or unknown"},
+  {"n", "<C-S-J>", ":resize +1<CR>", "Increase height", "User-defined or unknown"},
+  {"n", "<C-S-L>", ":vertical resize +1<CR>", "Increase width", "User-defined or unknown"},
+  {"n", "<C-S-H>", ":vertical resize -1<CR>", "Decrease width", "User-defined or unknown"},
+  {"n", "<C-Bslash>", ":vne<CR>", "Split window horizontally", "User-defined or unknown"},
+  {"n", "<C-_>", ":new<CR>", "Split window vertically", "User-defined or unknown"},
+  {"n", "<C-W><C-D>", "<C-W>d", "Show diagnostics under the cursor", "LSP"},
+  {"n", "<C-W>d", "", "Show diagnostics under the cursor", "LSP"},
+  {"v", "<Tab>", "", "vim.snippet.jump if active, otherwise <Tab>", "User-defined or unknown"},
+  {"v", "#", "", ":help v_#-default", "User-defined or unknown"},
+  {"v", "*", "", ":help v_star-default", "User-defined or unknown"},
+  {"v", "@", "mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'", ":help v_@-default", "User-defined or unknown"},
+  {"v", "Q", "mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'", ":help v_Q-default", "User-defined or unknown"},
+  {"v", "gb", "<Plug>(comment_toggle_blockwise_visual)", "Comment toggle blockwise (visual)", "Comment.nvim"},
+  {"v", "gra", "", "vim.lsp.buf.code_action()", "LSP"},
+  {"v", "gc", "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)", "Comment.nvim"},
+  {"v", "gx", "", "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)", "User-defined or unknown"},
+  {"v", "<Plug>(comment_toggle_blockwise_visual)", "<Esc><Cmd>lua require(\"Comment.api\").locked(\"toggle.blockwise\")(vim.fn.visualmode())<CR>", "Comment toggle blockwise (visual)", "Comment.nvim"},
+  {"v", "<Plug>(comment_toggle_linewise_visual)", "<Esc><Cmd>lua require(\"Comment.api\").locked(\"toggle.linewise\")(vim.fn.visualmode())<CR>", "Comment toggle linewise (visual)", "Comment.nvim"},
+  {"v", "<S-Tab>", "", "vim.snippet.jump if active, otherwise <S-Tab>", "User-defined or unknown"},
+  {"v", "<C-S>", "", "vim.lsp.buf.signature_help()", "LSP"},
+  {"i", "<S-Tab>", "", "vim.snippet.jump if active, otherwise <S-Tab>", "User-defined or unknown"},
+  {"i", "<C-S>", "", "vim.lsp.buf.signature_help()", "LSP"},
+  {"i", "<C-W>", "<C-G>u<C-W>", ":help i_CTRL-W-default", "User-defined or unknown"},
+  {"i", "<C-U>", "<C-G>u<C-U>", ":help i_CTRL-U-default", "User-defined or unknown"},
+  {"i", "<Tab>", "", "vim.snippet.jump if active, otherwise <Tab>", "User-defined or unknown"},
+  {"x", "#", "", ":help v_#-default", "User-defined or unknown"},
+  {"x", "*", "", ":help v_star-default", "User-defined or unknown"},
+  {"x", "@", "mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'", ":help v_@-default", "User-defined or unknown"},
+  {"x", "Q", "mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'", ":help v_Q-default", "User-defined or unknown"},
+  {"x", "gb", "<Plug>(comment_toggle_blockwise_visual)", "Comment toggle blockwise (visual)", "Comment.nvim"},
+  {"x", "gra", "", "vim.lsp.buf.code_action()", "LSP"},
+  {"x", "gc", "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)", "Comment.nvim"},
+  {"x", "gx", "", "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)", "User-defined or unknown"},
+  {"x", "<Plug>(comment_toggle_blockwise_visual)", "<Esc><Cmd>lua require(\"Comment.api\").locked(\"toggle.blockwise\")(vim.fn.visualmode())<CR>", "Comment toggle blockwise (visual)", "Comment.nvim"},
+  {"x", "<Plug>(comment_toggle_linewise_visual)", "<Esc><Cmd>lua require(\"Comment.api\").locked(\"toggle.linewise\")(vim.fn.visualmode())<CR>", "Comment toggle linewise (visual)", "Comment.nvim"}
+}
+
+local function my_keymaps_picker(opts)
+  opts = opts or {}
+  pickers.new(opts, {
+    prompt_title = "🔍 Keymaps + Plugins",
+    finder = finders.new_table {
+      results = keymaps,
+      entry_maker = function(entry)
+        return {
+          value = entry,
+          display = string.format("[%s] %-10s -> %-30s (%s)", entry[1], entry[2], entry[3], entry[5]),
+          ordinal = table.concat(entry, " "),
+        }
+      end,
+    },
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(_, map)
+      actions.select_default:replace(function()
+        local selection = action_state.get_selected_entry()
+        vim.cmd("echo 'Key: " .. selection.value[2] .. "'")
+      end)
+      return true
+    end,
+  }):find()
+end
+
+return require("telescope").register_extension({
+  exports = {
+    my_keymaps = my_keymaps_picker,
+  },
+})

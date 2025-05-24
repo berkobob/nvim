@@ -82,3 +82,5 @@ opts.desc = "Next buffer"
 keymap("n", "<A-h>", ":bnext<CR>", opts)
 opts.desc = "Previous buffer"
 keymap("n", "<A-l>", ":bprevious<CR>", opts)
+
+vim.keymap.set("n", "<leader>km", "<cmd>Telescope my_keymaps<CR>", { desc = "Show Keymaps" })
